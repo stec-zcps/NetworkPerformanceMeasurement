@@ -30,6 +30,7 @@ The load generation in the network can be done
 e.g. by iperf3. This can optionally be executed on separate devices in the network or on the two test devices.
 
 ![Concept](docs/images/overall_concept.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fstec-zcps%2FNetworkPerformanceMeasurment.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fstec-zcps%2FNetworkPerformanceMeasurment?ref=badge_shield)
 
 ## Setup
 Prerequisites:
@@ -57,3 +58,7 @@ To improve accuracy of the software-based network performance measurement find s
 ## Gateways
 In some scenarios (e.g. reference measurements with Kunbus TAP CURIOUS you may want to measure using Gateways on 
 client- and server-side. Therefore, see the [Gateway page](docs/Gateway.md).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fstec-zcps%2FNetworkPerformanceMeasurment.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fstec-zcps%2FNetworkPerformanceMeasurment?ref=badge_large)
