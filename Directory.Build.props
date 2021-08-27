@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Matthias Schneider</Authors>
+    <Company>Fraunhofer-Institut für Produktionstechnik und Automatisierung IPA</Company>
+    <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Copyright>2021 Fraunhofer Institute for Manufacturing Engineering and Automation IPA</Copyright>
+    <PackageProjectUrl>https://research.virtualfortknox.de/en/</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="LibLog" Version="5.0.8" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <AdditionalFiles Include="..\..\stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+
+</Project>

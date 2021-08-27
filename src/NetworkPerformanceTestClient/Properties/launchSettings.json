@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "NetworkPerformanceTestClient": {
+      "commandName": "Project",
+      "commandLineArgs": "sockperf ping-pong --ip localhost --port 1111 --time 1 --msg-size 20 --tcp --capture --tap --transmissionTechnology \"Ethernet\""
+    },
+    "Client - rperf": {
+      "commandName": "Project",
+      "commandLineArgs": "rperf --i 127.0.0.1 --port 5555 --time 1 --msgs-per-sec 1000 --msg-size 20 --protocol udp --interface \"Ethernet 2\" --transmissionTechnology \"Ethernet\" "
+    }
+  }
+}

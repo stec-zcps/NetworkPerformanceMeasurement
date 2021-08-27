@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F80AD5C-429C-4482-BA87-3DABFF278DEF}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		tests\Direcotry.Build.props = tests\Direcotry.Build.props
+		Directory.Build.props = Directory.Build.props
+		README.md = README.md
+		stylecop.json = stylecop.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dashboards", "Dashboards", "{08BD0311-BA97-429B-BFCF-6134832830AD}"
+	ProjectSection(SolutionItems) = preProject
+		LatencyCompareTests.json = LatencyCompareTests.json
+		LatencyTestResult.json = LatencyTestResult.json
+		LatencyTestResultsOverview.json = LatencyTestResultsOverview.json
+		ThroughputTestResultsOverview.json = ThroughputTestResultsOverview.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkPerformanceTestClientUnitTests", "tests\NetworkPerformanceTestClientUnitTests\NetworkPerformanceTestClientUnitTests.csproj", "{B21C1E55-F8DB-4E1E-A125-D9BB8F01E920}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkPacketCapturer", "src\NetworkPacketCapturer\NetworkPacketCapturer.csproj", "{A84860E2-9641-400E-AF36-BE1433797D2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkPerformanceShared", "src\NetworkPerformanceShared\NetworkPerformanceShared.csproj", "{563E9928-5CC1-4700-8775-35FBED584311}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkPerformanceTestClient", "src\NetworkPerformanceTestClient\NetworkPerformanceTestClient.csproj", "{402F03B1-9FDD-4B3B-8E5E-C61D2801031B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E18A4CAE-C11D-453E-A5F5-66F9EC10105C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{07E8031E-E4F2-4BD2-9EE3-D50CDD2E5B84}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Direcotry.Build.props = tests\Direcotry.Build.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B21C1E55-F8DB-4E1E-A125-D9BB8F01E920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B21C1E55-F8DB-4E1E-A125-D9BB8F01E920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B21C1E55-F8DB-4E1E-A125-D9BB8F01E920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B21C1E55-F8DB-4E1E-A125-D9BB8F01E920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84860E2-9641-400E-AF36-BE1433797D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84860E2-9641-400E-AF36-BE1433797D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84860E2-9641-400E-AF36-BE1433797D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84860E2-9641-400E-AF36-BE1433797D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563E9928-5CC1-4700-8775-35FBED584311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563E9928-5CC1-4700-8775-35FBED584311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563E9928-5CC1-4700-8775-35FBED584311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563E9928-5CC1-4700-8775-35FBED584311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{402F03B1-9FDD-4B3B-8E5E-C61D2801031B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{402F03B1-9FDD-4B3B-8E5E-C61D2801031B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{402F03B1-9FDD-4B3B-8E5E-C61D2801031B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{402F03B1-9FDD-4B3B-8E5E-C61D2801031B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08BD0311-BA97-429B-BFCF-6134832830AD} = {2F80AD5C-429C-4482-BA87-3DABFF278DEF}
+		{B21C1E55-F8DB-4E1E-A125-D9BB8F01E920} = {07E8031E-E4F2-4BD2-9EE3-D50CDD2E5B84}
+		{A84860E2-9641-400E-AF36-BE1433797D2B} = {E18A4CAE-C11D-453E-A5F5-66F9EC10105C}
+		{563E9928-5CC1-4700-8775-35FBED584311} = {E18A4CAE-C11D-453E-A5F5-66F9EC10105C}
+		{402F03B1-9FDD-4B3B-8E5E-C61D2801031B} = {E18A4CAE-C11D-453E-A5F5-66F9EC10105C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F0AF50E-BDD7-4C67-BE8B-B4BE4757DDDD}
+	EndGlobalSection
+EndGlobal

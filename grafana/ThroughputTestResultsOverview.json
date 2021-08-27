@@ -1,0 +1,257 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "panels": [
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tool"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 78
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transmission Technology"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 178
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 17
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Start"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 154
+              },
+              {
+                "id": "unit",
+                "value": "dateTimeAsLocal"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bandwidth"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 108
+              },
+              {
+                "id": "unit",
+                "value": "Mbits"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mode"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 96
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Message Rate"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 159
+              },
+              {
+                "id": "unit",
+                "value": "msg/s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Messages Size"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 147
+              },
+              {
+                "id": "unit",
+                "value": "decbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Protocol"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 73
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Test Duration"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 102
+              },
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Server"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 181
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 22,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.5.4",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ThroughputTestResults.Id as \"Id\", \n  StartTimestamp as \"Start\",\n  TransmissionTechnology as \"Transmission Technology\",\n  TestTool as \"Tool\",\n  TestMode as \"Mode\",\n  TestServer as \"Server\",\n  Protocol,\n  MessageSize as \"Messages Size\",\n  MessageRate as \"Message Rate\",\n  TestDuration as \"Test Duration\",\n  Bandwidth AS \"Bandwidth\",\n  Comment\nFROM ThroughputTestResults, ThroughputTestParameters\nWHERE ThroughputTestParameters.ThroughputTestResultId = ThroughputTestResults.Id\nAND $__timeFilter(StartTimestamp)\nORDER BY StartTimestamp",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Bandwidth"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ThroughputTestResults",
+          "timeColumn": "Bandwidth",
+          "timeColumnType": "float",
+          "where": []
+        }
+      ],
+      "title": "Tests Overview",
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Throughput Test Result",
+  "uid": "BWgjzXeGk",
+  "version": 5
+}

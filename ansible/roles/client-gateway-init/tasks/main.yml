@@ -1,0 +1,42 @@
+- name: "[iptables] Delete all rules"
+  iptables:
+    flush: yes
+
+- name: "[iptables] Delete all rules in table 'nat'"
+  iptables:
+    table: nat
+    flush: yes
+
+- name: "[iptables] Forward all incoming traffic from NIC '{{ client_nic }}' (client) to IP '{{ hostvars['server-gateway']['gateway_ips'][item.technology] }}' (server-gateway via {{ item.technology }})"
+  iptables:
+    table: nat
+    chain: PREROUTING
+    jump: "DNAT"
+    protocol: "{{ item.protocol }}"
+    destination_port: "{{ item.port }}"
+    in_interface: "{{ client_nic }}"
+    to_destination: "{{ hostvars['server-gateway']['gateway_ips'][item.technology] }}"
+    comment: "Forward all incoming traffic from NIC '{{ client_nic }}' (client) to IP '{{ hostvars['server-gateway']['gateway_ips'][item.technology] }}' (server-gateway via {{ item.technology }})"
+  with_items: "{{ port_forwardings }}"
+
+- name: "[iptables] Forward all incoming traffic from NIC '{{ hostvars[inventory_hostname]['gateway_nics'][technology] }}' (server-gateway via {{ item.technology }}) to IP '{{ hostvars['client']['gateway_ips'][item.technology] }}' (client)"
+  iptables:
+    table: nat
+    chain: PREROUTING
+    jump: "DNAT"
+    protocol: "{{ item.protocol }}"
+    source_port: "{{ item.port }}"
+    in_interface: "{{ hostvars[inventory_hostname]['gateway_nics'][item.technology] }}"
+    to_destination: "{{ hostvars['client']['ip'] }}"
+    comment: "Forward all incoming traffic from NIC '{{ hostvars[inventory_hostname]['gateway_nics'][item.technology] }}' (server-gateway via {{ item.technology }}) to IP '{{ hostvars['client']['ip'] }}' (client)"
+  with_items: "{{ port_forwardings }}"
+
+- name: "[iptables] Masquerade traffic of NICs'"
+  iptables:
+    table: nat
+    chain: POSTROUTING
+    jump: "MASQUERADE"
+    out_interface : "{{ item }}"
+  with_items:
+    - "{{ client_nic }}"
+    - "{{ hostvars[inventory_hostname]['gateway_nics'].values()|list }}"

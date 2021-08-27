@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="ZCPS Linux Dev" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="ZCPS Linux Dev">
+        <serverdata>
+          <mappings>
+            <mapping deploy="NetworkPerformanceMeasurment" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceTestClient/obj" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceTestClient/bin" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceTestServer/bin" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceTestServer/obj" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPacketCapturer/bin" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPacketCapturer/obj" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceShared/bin" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceShared/obj" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceTestClientUnitTests/bin" />
+            <excludedPath local="true" path="$PROJECT_DIR$/NetworkPerformanceTestClientUnitTests/obj" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.vs" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

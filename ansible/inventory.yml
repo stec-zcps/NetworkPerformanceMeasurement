@@ -1,0 +1,101 @@
+all:
+  vars:
+    technologies:
+      - "ethernet"
+      - "wifi"
+      - "5g"
+    port_forwardings:
+      - service: "rperf-udp-ethernet"
+        technology: "ethernet"
+        protocol: udp
+        port: 22222
+      - service: "rperf-tcp-ethernet"
+        technology: "ethernet"
+        protocol: tcp
+        port: 22223
+      - service: "rperf-udp-wifi"
+        technology: "wifi"
+        protocol: udp
+        port: 33333
+      - service: "rperf-tcp-wifi"
+        technology: "wifi"
+        protocol: tcp
+        port: 33334
+      - service: "rperf-udp-5g"
+        technology: "5g"
+        protocol: udp
+        port: 44444
+      - service: "rperf-tcp-5g"
+        technology: "5g"
+        protocol: tcp
+        port: 44445
+      - service: "sockperf-udp-ethernet"
+        technology: "ethernet"
+        protocol: udp
+        port: 11111
+      - service: "sockperf-tcp-ethernet"
+        technology: "ethernet"
+        protocol: tcp
+        port: 11112
+      - service: "sockperf-udp-wifi"
+        technology: "wifi"
+        protocol: udp
+        port: 21111
+      - service: "sockperf-tcp-wifi"
+        technology: "wifi"
+        protocol: tcp
+        port: 21112
+      - service: "sockperf-udp-5g"
+        technology: "5g"
+        protocol: udp
+        port: 31111
+      - service: "sockperf-tcp-5g"
+        technology: "5g"
+        protocol: tcp
+        port: 31112
+
+client_server:
+  hosts:
+    client:
+      ansible_host: "{{ vault_host_client_ip }}"
+      ansible_user: "{{ vault_host_client_user }}"
+      ansible_password: "{{ vault_host_client_password }}"
+      ansible_become_password: "{{ ansible_password }}"
+      gateway_nic: "enp2s0"
+
+    server:
+      ansible_host: "{{ vault_host_server_ip }}"
+      ansible_user: "{{ vault_host_server_user }}"
+      ansible_password: "{{ vault_host_server_password }}"
+      ansible_become_password: "{{ ansible_password }}"
+      gateway_nic: "enp2s0"
+
+gateways:
+  hosts:
+    client-gateway:
+      ansible_host: "{{ vault_host_gateway_client_ip }}"
+      ansible_user: "{{ vault_host_gateway_client_user }}"
+      ansible_password: "{{ vault_host_gateway_client_password }}"
+      ansible_become_password: "{{ ansible_password }}"
+      client_nic: "enp2s0"
+      gateway_nics:
+        ethernet: "enp3s0"
+        wifi: "wlp1s0"
+        5g: "wwan0"
+      gateway_ips: []
+
+    server-gateway:
+      ansible_host: "{{ vault_host_gateway_server_ip }}"
+      ansible_user: "{{ vault_host_gateway_server_user }}"
+      ansible_password: "{{ vault_host_gateway_server_password }}"
+      ansible_become_password: "{{ ansible_password }}"
+      server_nic: "enp2s0"
+      client_gateway_nic: "enp3s0"
+      gateway_nics:
+        ethernet: "enp3s0"
+        wifi: "wlp1s0"
+        5g: "wwan0"
+      gateway_ips: []
+
+
+

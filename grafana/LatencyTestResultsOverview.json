@@ -1,0 +1,498 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 1,
+  "iteration": 1627981468293,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Latency Test Dashboards",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": "${datasource}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 36
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Compare",
+                    "url": "/d/4Fzy4HMnk/latency-test-result?orgId=1&var-Test_Id=${__value.raw}&var-datasource=${datasource}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Start"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 158
+              },
+              {
+                "id": "unit",
+                "value": "dateTimeAsLocal"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transmission Technology"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 176
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Messages Size"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              },
+              {
+                "id": "unit",
+                "value": "decbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Message Rate"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 129
+              },
+              {
+                "id": "unit",
+                "value": "msg/s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Test Duration"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              },
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tool"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 142
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mode"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Protocol"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 103
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Messages Per Second"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 178
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency (Minimum)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 143
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency (Min)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency (Avg)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 118
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency (Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 108
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Jitter (Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 94
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 32,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "links": [],
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Start"
+          }
+        ]
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  LatencyTestResults.Id as \"Id\", \n  StartTimestamp as \"Start\",\n  TransmissionTechnology as \"Transmission Technology\",\n  TestTool as \"Tool\",\n  TestMode as \"Mode\",\n  Protocol,\n  MessageSize as \"Messages Size\",\n  MessagesPerSecond as \"Message Rate\",\n  TestDuration as \"Test Duration\",\n  MinimumLatency as \"Latency (Min)\",\n  AverageLatency as \"Latency (Avg)\",\n  MaximumLatency as \"Latency (Max)\",\n  MaximumJitter as \"Jitter (Max)\",\n  Comment\nFROM LatencyTestResults, LatencyTestParameters\nWHERE LatencyTestParameters.LatencyTestResultId = LatencyTestResults.Id\nAND LatencyTestParameters.TransmissionTechnology IN (${Test_Transmission_Technology:singlequote})\nAND LatencyTestParameters.TestTool IN (${Test_Tool:singlequote})\nAND LatencyTestParameters.MessagesPerSecond IN (${Test_MessagesPerSecond:singlequote})\nAND LatencyTestParameters.MessageSize IN (${Test_MessageSize:singlequote})\nAND $__timeFilter(StartTimestamp)\nORDER BY StartTimestamp",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "StartTimestamp",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Tests",
+      "type": "table"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "MySQL",
+          "value": "MySQL"
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "mysql",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "${datasource}",
+        "definition": "SELECT TransmissionTechnology FROM NetworkPerformanceTest.LatencyTestParameters;",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": "Transmission Technology",
+        "multi": true,
+        "name": "Test_Transmission_Technology",
+        "options": [],
+        "query": "SELECT TransmissionTechnology FROM NetworkPerformanceTest.LatencyTestParameters;",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "${datasource}",
+        "definition": "SELECT TestTool FROM NetworkPerformanceTest.LatencyTestParameters;",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": "Tool",
+        "multi": true,
+        "name": "Test_Tool",
+        "options": [],
+        "query": "SELECT TestTool FROM NetworkPerformanceTest.LatencyTestParameters;",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "${datasource}",
+        "definition": "SELECT MessagesPerSecond FROM NetworkPerformanceTest.LatencyTestParameters ",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": "Messages Per Second",
+        "multi": true,
+        "name": "Test_MessagesPerSecond",
+        "options": [],
+        "query": "SELECT MessagesPerSecond FROM NetworkPerformanceTest.LatencyTestParameters ",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "${datasource}",
+        "definition": "SELECT MessageSize FROM NetworkPerformanceTest.LatencyTestParameters ",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": "Message Size",
+        "multi": true,
+        "name": "Test_MessageSize",
+        "options": [],
+        "query": "SELECT MessageSize FROM NetworkPerformanceTest.LatencyTestParameters ",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Tests Overview",
+  "uid": "T5LE4NGnk",
+  "version": 2
+}

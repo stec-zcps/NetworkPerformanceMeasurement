@@ -1,0 +1,65 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Sockperf",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/NetworkPerformanceTestClient/bin/Debug/net5.0/NetworkPerformanceTestClient.dll",
+            "args": [
+                "sockperf", "ping-pong", 
+                "--time", "10",
+                "--serverIp=192.168.6.10", "--interface=enp2s0", 
+                "--port=11111", "--transmissionTechnology=Ethernet",                // Ethernet - UDP
+                //"--port=11112", "--tcp", "--transmissionTechnology=Ethernet",     // Ethernet - TCP
+                //"--port=21111", "--transmissionTechnology=WiFi 6"                 // WiFi 6 - UDP
+                //"--port=21112", "--tcp", "--transmissionTechnology=WiFi 6"        // WiFi 6 - TCP
+                //"--port=31111", "--transmissionTechnology=5G",                    // 5G - UDP
+                //"--port=31112", "--tcp", "--transmissionTechnology=5G",           // 5G - TCP
+                "--comment", "...",
+                "--msgs-per-sec=1000,4000,7500,10000", 
+                "--msg-size=64,1440", 
+                "--captureInterfaceName", "enp3s0", 
+                "--tap"
+            ],
+            "cwd": "${workspaceFolder}/src/NetworkPerformanceTestClient",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false
+            }
+        },
+        {
+            "name": "Rperf",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/NetworkPerformanceTestClient/bin/Debug/net5.0/NetworkPerformanceTestClient.dll",
+            "args": ["rperf",
+                "--serverIp=192.168.5.10", "--interface=enp2s0",
+                "--port=22222", "--protocol=udp", "--transmissionTechnology=Ethernet",    // Ethernet - UDP
+                //"--port=22223", "--protocol=tcp", "--transmissionTechnology=Ethernet",    // Ethernet - TCP
+                //"--port=33333", "--protocol=udp", "--transmissionTechnology=WiFi 6",      // WiFi 6 - UDP
+                //"--port=33334", "--protocol=tcp", "--transmissionTechnology=WiFi 6",      // WiFi 6 - TCP
+                //"--port=44444", "--protocol=udp", "--transmissionTechnology=5G",          // 5G - UDP
+                //"--port=44445", "--protocol=tcp", "--transmissionTechnology=5G",          // 5G - TCP
+                "--time=30",
+                "--msgs-per-sec=2500",
+                "--msg-size=64",
+                "--comment", "...",
+                "--captureInterfaceName", "enp3s0", 
+                "--tap",
+                "--cpu-affinity", "2,3",
+                "--owl",
+                "--warmup=1"
+                ],
+            "cwd": "${workspaceFolder}/src/NetworkPerformanceTestClient",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false
+            }
+        }
+    ]
+}

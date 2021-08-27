@@ -1,0 +1,5 @@
+- set_fact:
+    ip: "{{ hostvars[inventory_hostname]['ansible_' + hostvars[inventory_hostname]['gateway_nic']]['ipv4']['address'] }}"
+
+- debug:
+    msg: "{{ inventory_hostname }}: {{ hostvars[inventory_hostname]['ip'] }}"

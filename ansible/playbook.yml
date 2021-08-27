@@ -1,0 +1,46 @@
+---
+
+### ansible-playbook playbook.yml -i inventory.yml
+
+- name: "Show hostname"
+  hosts: all
+  gather_facts: no
+  tasks:
+    - shell: hostname
+      register: hostname_result
+    - debug:
+        var: hostname_result['stdout']
+
+- name: "Configure Client"
+  hosts: client
+  roles:
+    - role: client-init
+
+- name: "Configure Server"
+  hosts: server
+  roles:
+    - role: server-init
+
+- name: "Get IPs of gateways for '{{ technology }}'"
+  hosts: gateways
+  tasks:
+    - set_fact:
+        gateway_ips: "{{ gateway_ips|default({}) | combine( { item: hostvars[inventory_hostname]['ansible_' + hostvars[inventory_hostname]['gateway_nics'][item]]['ipv4']['address'] } ) }}"
+      with_items: "{{ technologies }}"
+    - debug:
+        msg: "{{ inventory_hostname }}: {{ hostvars[inventory_hostname]['gateway_ips'] }}"
+
+- name: "Configure Client Gateway"
+  hosts: client-gateway
+  become: yes
+  gather_facts: no
+  roles:
+    - role: client-gateway-init
+
+- name: "Configure Server Gateway"
+  hosts: server-gateway
+  become: yes
+  gather_facts: no
+  roles:
+    - role: server-gateway-init
+

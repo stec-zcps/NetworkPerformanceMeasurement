@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="cc83da17-556f-4934-bbc3-3d70b09ee926" name="ZCPS Linux Dev">
+        <fileTransfer rootFolder="/home/vfk/Development" accessType="SFTP" host="10.3.2.216" port="22" sshConfigId="ea19e5e6-cf29-4b38-8b8c-6bf7c5e8522b" sshConfig="[VFK-IPA] Linux Dev VM (10.3.2.216)" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,1803 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 5,
+    "iteration": 1626971190736,
+    "links": [],
+    "panels": [
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": null,
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Start"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 242
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Test Id"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 73
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Tool"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 86
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Mode"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 102
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Protocol"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 73
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Message Size"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 51
+                },
+                {
+                  "id": "unit",
+                  "value": "decbytes"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Message Rate"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 94
+                },
+                {
+                  "id": "unit",
+                  "value": "msg/s"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Test Duration"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 70
+                },
+                {
+                  "id": "unit",
+                  "value": "s"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Transmission Technology"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 96
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Message Size"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 117
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Captured Ping-Ping"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 137
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Ping-Pings"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 88
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Processing Times"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 122
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Pong-Pongs"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 93
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Ping-Pongs"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 83
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Sent Packet Count"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 130
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Software Packets"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 133
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 24,
+          "w": 16,
+          "x": 0,
+          "y": 0
+        },
+        "id": 4,
+        "options": {
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": false,
+              "displayName": "Message Rate"
+            }
+          ]
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "table",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  LatencyTestParameters.LatencyTestResultId as \"Test Id\",\n  TransmissionTechnology as \"Transmission Technology\",\n  TestTool as \"Tool\",\n  TestMode as \"Mode\",\n  Protocol,\n  MessageSize as \"Message Size\",\n  MessagesPerSecond as \"Message Rate\",\n  TestDuration as \"Test Duration\",\n  COUNT(CASE WHEN LatencyTestMeasurments.CapturedOneWayLatencyClientToServer > 0 THEN 1 END) AS \"Ping-Pings\",\n  COUNT(CASE WHEN LatencyTestMeasurments.CapturedProcessingTimeServer > 0 THEN 1 END) AS \"Processing Times\",\n  COUNT(CASE WHEN LatencyTestMeasurments.CapturedOneWayLatencyServerToClient > 0 THEN 1 END) AS \"Pong-Pongs\",\n  COUNT(CASE WHEN LatencyTestMeasurments.CapturedLatency > 0 THEN 1 END) AS \"Ping-Pongs\",\n  LatencyTestResults.ReceivedMessages AS \"Received Packets\"\nFROM LatencyTestResults, LatencyTestParameters, LatencyTestMeasurments\nWHERE LatencyTestParameters.LatencyTestResultId IN (${Test_Id:singlequote})\nAND LatencyTestParameters.LatencyTestResultId = LatencyTestMeasurments.LatencyTestResultId AND LatencyTestResults.Id = LatencyTestParameters.LatencyTestResultId\nGROUP BY LatencyTestParameters.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Panel Title",
+        "type": "table"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 8,
+          "x": 16,
+          "y": 0
+        },
+        "id": 8,
+        "options": {
+          "content": "",
+          "mode": "markdown"
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  StartTimestamp AS \"time\",\n  Id\nFROM ThroughputTestParameters\nWHERE\n  $__timeFilter(StartTimestamp)\nORDER BY StartTimestamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "One Way Latency | Client ---> Server",
+        "type": "text"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 16,
+          "y": 1
+        },
+        "id": 9,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  AVG(LatencyTestMeasurments.CapturedOneWayLatencyClientToServer) AS \"Average\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.CapturedOneWayLatencyClientToServer > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Average",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 20,
+          "y": 1
+        },
+        "id": 10,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  MAX(LatencyTestMeasurments.CapturedOneWayLatencyClientToServer) AS \"Maximum\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.CapturedOneWayLatencyClientToServer > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Maximum",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 8,
+          "x": 16,
+          "y": 8
+        },
+        "id": 11,
+        "options": {
+          "content": "",
+          "mode": "markdown"
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  StartTimestamp AS \"time\",\n  Id\nFROM ThroughputTestParameters\nWHERE\n  $__timeFilter(StartTimestamp)\nORDER BY StartTimestamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "One Way Latency | Server ---> Client",
+        "type": "text"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 16,
+          "y": 9
+        },
+        "id": 14,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  AVG(LatencyTestMeasurments.CapturedOneWayLatencyServerToClient) AS \"Average\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.CapturedOneWayLatencyServerToClient > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Average",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 20,
+          "y": 9
+        },
+        "id": 15,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  MAX(LatencyTestMeasurments.CapturedOneWayLatencyServerToClient) AS \"Maximum\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.CapturedOneWayLatencyServerToClient > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Maximum",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 8,
+          "x": 16,
+          "y": 16
+        },
+        "id": 12,
+        "options": {
+          "content": "",
+          "mode": "markdown"
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  StartTimestamp AS \"time\",\n  Id\nFROM ThroughputTestParameters\nWHERE\n  $__timeFilter(StartTimestamp)\nORDER BY StartTimestamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Processing Time Server",
+        "type": "text"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 16,
+          "y": 17
+        },
+        "id": 17,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  AVG(LatencyTestMeasurments.CapturedProcessingTimeServer) AS \"Average\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.CapturedProcessingTimeServer > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Average",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 20,
+          "y": 17
+        },
+        "id": 18,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  MAX(LatencyTestMeasurments.CapturedProcessingTimeServer) AS \"Maximum\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.CapturedProcessingTimeServer > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Maximum",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 12,
+          "x": 0,
+          "y": 24
+        },
+        "id": 19,
+        "options": {
+          "content": "",
+          "mode": "markdown"
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  StartTimestamp AS \"time\",\n  Id\nFROM ThroughputTestParameters\nWHERE\n  $__timeFilter(StartTimestamp)\nORDER BY StartTimestamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Latency (Average)",
+        "type": "text"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 12,
+          "x": 12,
+          "y": 24
+        },
+        "id": 23,
+        "options": {
+          "content": "",
+          "mode": "markdown"
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": false,
+            "rawSql": "SELECT\n  StartTimestamp AS \"time\",\n  Id\nFROM ThroughputTestParameters\nWHERE\n  $__timeFilter(StartTimestamp)\nORDER BY StartTimestamp",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Latency (Maximum)",
+        "type": "text"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 0,
+          "y": 25
+        },
+        "id": 20,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  AVG(LatencyTestMeasurments.Latency) AS \"Latency\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.Latency > 0 AND LatencyTestMeasurments.CapturedLatency > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Software",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 4,
+          "y": 25
+        },
+        "id": 21,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  AVG(CapturedLatency) AS \"Captured Latency\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.Latency > 0 AND LatencyTestMeasurments.CapturedLatency > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Captured",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "orange",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 8,
+          "y": 25
+        },
+        "id": 22,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  AVG(LatencyTestMeasurments.Latency-LatencyTestMeasurments.CapturedLatency) AS \"Difference\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.Latency > 0 AND LatencyTestMeasurments.CapturedLatency > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Difference",
+        "transformations": [],
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 12,
+          "y": 25
+        },
+        "id": 24,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  MAX(LatencyTestMeasurments.Latency) AS \"Latency\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.Latency > 0 AND LatencyTestMeasurments.CapturedLatency > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Software",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 16,
+          "y": 25
+        },
+        "id": 25,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  MAX(CapturedOneWayLatencyServerToClient+CapturedOneWayLatencyClientToServer+CapturedProcessingTimeServer)/2 AS \"Captured Latency\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.Latency > 0 AND LatencyTestMeasurments.CapturedLatency > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Captured",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "displayName": "$__cell_0",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "orange",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Id"
+              },
+              "properties": [
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 4,
+          "x": 20,
+          "y": 25
+        },
+        "id": 26,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.4",
+        "targets": [
+          {
+            "format": "time_series",
+            "group": [],
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT \r\n  LatencyTestMeasurments.LatencyTestResultId as \"time\",\r\n  MAX(LatencyTestMeasurments.Latency)-MAX(LatencyTestMeasurments.CapturedLatency) AS \"Difference\"\r\nFROM LatencyTestMeasurments  \r\nWHERE LatencyTestMeasurments.LatencyTestResultId IN (${Test_Id:singlequote})\r\nAND LatencyTestMeasurments.Latency > 0 AND LatencyTestMeasurments.CapturedLatency > 0\r\nGROUP BY LatencyTestMeasurments.LatencyTestResultId",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "Id"
+                  ],
+                  "type": "column"
+                }
+              ]
+            ],
+            "table": "ThroughputTestParameters",
+            "timeColumn": "StartTimestamp",
+            "timeColumnType": "timestamp",
+            "where": [
+              {
+                "name": "$__timeFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Difference",
+        "transformations": [],
+        "type": "bargauge"
+      }
+    ],
+    "schemaVersion": 27,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "allValue": null,
+          "current": {
+            "selected": true,
+            "tags": [],
+            "text": [
+              "771",
+              "772",
+              "773",
+              "774",
+              "775",
+              "776",
+              "777",
+              "778",
+              "779",
+              "780",
+              "781",
+              "782",
+              "783",
+              "784",
+              "785",
+              "786",
+              "787",
+              "788",
+              "789",
+              "790",
+              "791",
+              "792",
+              "793",
+              "794",
+              "795",
+              "796"
+            ],
+            "value": [
+              "771",
+              "772",
+              "773",
+              "774",
+              "775",
+              "776",
+              "777",
+              "778",
+              "779",
+              "780",
+              "781",
+              "782",
+              "783",
+              "784",
+              "785",
+              "786",
+              "787",
+              "788",
+              "789",
+              "790",
+              "791",
+              "792",
+              "793",
+              "794",
+              "795",
+              "796"
+            ]
+          },
+          "datasource": null,
+          "definition": "SELECT Id\nFROM NetworkPerformanceTest.LatencyTestResults",
+          "description": null,
+          "error": null,
+          "hide": 0,
+          "includeAll": false,
+          "label": "Test Result Ids",
+          "multi": true,
+          "name": "Test_Id",
+          "options": [],
+          "query": "SELECT Id\nFROM NetworkPerformanceTest.LatencyTestResults",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Compare Hardware Capturings",
+    "uid": "e2QQxIZ7k",
+    "version": 35
+  }

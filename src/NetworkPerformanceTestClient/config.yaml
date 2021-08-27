@@ -1,0 +1,5 @@
+﻿database_host: localhost
+database_port: 3308
+database_user: root
+database_password: password
+database_name: NetworkPerformanceTest

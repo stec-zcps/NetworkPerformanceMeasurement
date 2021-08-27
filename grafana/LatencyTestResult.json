@@ -1,0 +1,2452 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 2,
+  "iteration": 1627981659432,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": false,
+      "title": "Latency Test Dashboards",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": null,
+      "description": "",
+      "gridPos": {
+        "h": 1,
+        "w": 14,
+        "x": 0,
+        "y": 0
+      },
+      "id": 32,
+      "options": {
+        "content": "",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  UNIX_TIMESTAMP(<time_column>) as time_sec,\n  <value column> as value,\n  <series name column> as metric\nFROM <table name>\nWHERE $__timeFilter(time_column)\nORDER BY <time_column> ASC\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Test Details",
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "gridPos": {
+        "h": 1,
+        "w": 10,
+        "x": 14,
+        "y": 0
+      },
+      "id": 28,
+      "options": {
+        "content": "",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  UNIX_TIMESTAMP(<time_column>) as time_sec,\n  <value column> as value,\n  <series name column> as metric\nFROM <table name>\nWHERE $__timeFilter(time_column)\nORDER BY <time_column> ASC\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Message Statistics",
+      "type": "text"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 1,
+        "x": 0,
+        "y": 1
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  Id\nFROM LatencyTestResults  \nWHERE LatencyTestResults.Id = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Id",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 1,
+        "y": 1
+      },
+      "id": 37,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestParameters.TransmissionTechnology\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Technology",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 3,
+        "y": 1
+      },
+      "id": 40,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestParameters.Protocol\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Protocol",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 5,
+        "y": 1
+      },
+      "id": 39,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestParameters.TestTool\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Test Tool",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 8,
+        "y": 1
+      },
+      "id": 36,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestParameters.TestMode\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Test Mode",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 10,
+        "y": 1
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestParameters.TestDuration\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Test Duration [s]",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 12,
+        "y": 1
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestParameters.TestServer\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Target Host",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "-1": {
+                  "text": "Variable"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "msg/s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 14,
+        "y": 1
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  LatencyTestParameters.MessagesPerSecond\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "measurment",
+          "timeColumn": "id",
+          "timeColumnType": "int",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "measurement_id",
+                "=",
+                "'$MeasurementId'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Message Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "-1": {
+                  "text": "Variable"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 16,
+        "y": 1
+      },
+      "id": 38,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  LatencyTestParameters.MessageSize\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "measurment",
+          "timeColumn": "id",
+          "timeColumnType": "int",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "measurement_id",
+                "=",
+                "'$MeasurementId'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Message Size",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 18,
+        "y": 1
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  SentMessages\nFROM LatencyTestResults \nWHERE LatencyTestResults.Id = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "measurment",
+          "timeColumn": "id",
+          "timeColumnType": "int",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "measurement_id",
+                "=",
+                "'$MeasurementId'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Sent Messages",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 20,
+        "y": 1
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ReceivedMessages\nFROM LatencyTestResults \nWHERE LatencyTestResults.Id = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "measurment",
+          "timeColumn": "id",
+          "timeColumnType": "int",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "measurement_id",
+                "=",
+                "'$MeasurementId'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Received Messages",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 22,
+        "y": 1
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  LostMessages\nFROM LatencyTestResults \nWHERE LatencyTestResults.Id = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "measurment",
+          "timeColumn": "id",
+          "timeColumnType": "int",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "measurement_id",
+                "=",
+                "'$MeasurementId'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Lost Messages",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestParameters.Comment\r\nFROM LatencyTestParameters  \r\nWHERE LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "TestTool"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestParameters",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Comment",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "gridPos": {
+        "h": 1,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
+      "id": 17,
+      "options": {
+        "content": "",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  UNIX_TIMESTAMP(<time_column>) as time_sec,\n  <value column> as value,\n  <series name column> as metric\nFROM <table name>\nWHERE $__timeFilter(time_column)\nORDER BY <time_column> ASC\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Latency",
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "gridPos": {
+        "h": 1,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      },
+      "id": 18,
+      "options": {
+        "content": "",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  UNIX_TIMESTAMP(<time_column>) as time_sec,\n  <value column> as value,\n  <series name column> as metric\nFROM <table name>\nWHERE $__timeFilter(time_column)\nORDER BY <time_column> ASC\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Jitter",
+      "type": "text"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 0,
+        "y": 6
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "repeat": null,
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  MinimumLatency AS \"Latency - Minimum\",\n  AverageLatency AS \"Latency - Average\",\n  MaximumLatency AS \"Latency - Maximum\",\n  StandardDeviationLatency AS \"Latency - Standard Deviation\",\n  MinimumJitter AS \"Jitter - Minimum\",\n  AverageJitter AS \"Jitter - Average\",\n  MaximumJitter AS \"Jitter - Maximum\",\n  StandardDeviationJitter AS \"Jitter - Standard Deviation\"\nFROM LatencyTestResults \nWHERE LatencyTestResults.Id = ${Test_Id:singlequote}",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "MinimumLatency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "LatencyTestResults",
+          "timeColumn": "Id",
+          "timeColumnType": "bigint",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Minimum",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Latency - Minimum"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 3,
+        "y": 6
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Average",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Latency - Average"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 6,
+        "y": 6
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Maximum",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Latency - Maximum"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 9,
+        "y": 6
+      },
+      "id": 34,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Standard Deviation",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Latency - Standard Deviation"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 12,
+        "y": 6
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Minimum",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Jitter - Minimum"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 15,
+        "y": 6
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Average",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Jitter - Average"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 18,
+        "y": 6
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Maximum",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Jitter - Maximum"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 21,
+        "y": 6
+      },
+      "id": 35,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Standard Deviation",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Jitter - Standard Deviation"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Captured"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency - Hardware Capturing"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestMeasurments.Index AS \"time\", \r\n  LatencyTestMeasurments.Latency AS \"Latency - Software Measurment\",\r\n  LatencyTestMeasurments.Jitter AS \"Jitter - Software Measurment\"\r\nFROM LatencyTestResults, LatencyTestMeasurments, LatencyTestParameters   \r\nWHERE LatencyTestMeasurments.LatencyTestResultId = ${Test_Id:singlequote}\r\nAND LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}\r\nAND LatencyTestResults.Id = ${Test_Id:singlequote}\r\nAND LatencyTestMeasurments.Index < ${__to:date:ms}\r\nORDER BY LatencyTestMeasurments.SendTime",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Latency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "MeasurmentValues",
+          "timeColumn": "Position",
+          "timeColumnType": "int",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "RelatedTestResultId",
+                "=",
+                "$MeasurementId"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  LatencyTestMeasurments.Index AS \"time\", \r\n  LatencyTestMeasurments.CapturedLatency AS \"Latency - Hardware Capturing\",\r\n  LatencyTestMeasurments.CapturedJitter AS \"Jitter - Hardware Capturing\"\r\nFROM LatencyTestResults, LatencyTestMeasurments, LatencyTestParameters   \r\nWHERE LatencyTestMeasurments.LatencyTestResultId = ${Test_Id:singlequote}\r\nAND LatencyTestParameters.LatencyTestResultId = ${Test_Id:singlequote}\r\nAND LatencyTestResults.Id = ${Test_Id:singlequote}\r\nAND CapturedLatency <> -1\r\nAND LatencyTestMeasurments.Index < ${__to:date:ms}\r\nORDER BY LatencyTestMeasurments.SendTime",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "Latency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "MeasurmentValues",
+          "timeColumn": "Position",
+          "timeColumnType": "int",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "RelatedTestResultId",
+                "=",
+                "$MeasurementId"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Latency Values",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Time",
+                "Latency - Software Measurment",
+                "Latency - Hardware Capturing"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Captured"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Jitter - Hardware Capturing"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 13,
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Jitter Values",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Time",
+                "Jitter - Software Measurment",
+                "Jitter - Hardware Capturing"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 0
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency - Hardware Capturing"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 4,
+      "options": {
+        "bucketOffset": 0,
+        "combine": false,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 13,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Latency Histogram",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Latency - Software Measurment",
+                "Latency - Hardware Capturing"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "histogram"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "decimals": 1,
+          "mappings": [],
+          "max": -1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "Jitter - Hardware Capturing"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Jitter - Software Measurment"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Jitter - Hardware Capturing"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 33,
+      "options": {
+        "bucketOffset": 0,
+        "combine": false,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      },
+      "pluginVersion": "8.0.6",
+      "targets": [
+        {
+          "panelId": 13,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Jitter Histogram",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Jitter - Software Measurment",
+                "Jitter - Hardware Capturing"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "histogram"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "MySQL",
+          "value": "MySQL"
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "mysql",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "992",
+          "value": "992"
+        },
+        "datasource": "${datasource}",
+        "definition": "SELECT Id\nFROM NetworkPerformanceTest.LatencyTestResults",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Test Result Id",
+        "multi": false,
+        "name": "Test_Id",
+        "options": [],
+        "query": "SELECT Id\nFROM NetworkPerformanceTest.LatencyTestResults",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "1969-12-31T23:59:59.972Z",
+    "to": "1970-01-01T00:00:01.017Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Latency Test Result",
+  "uid": "4Fzy4HMnk",
+  "version": 12
+}

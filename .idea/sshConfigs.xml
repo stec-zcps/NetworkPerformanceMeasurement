@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" host="10.3.2.216" id="ea19e5e6-cf29-4b38-8b8c-6bf7c5e8522b" port="22" customName="[VFK-IPA] Linux Dev VM (10.3.2.216)" nameFormat="CUSTOM" username="vfk">
+        <option name="customName" value="[VFK-IPA] Linux Dev VM (10.3.2.216)" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "KunbusTapSniffer": {
+      "commandName": "Project",
+      "commandLineArgs": "--interface \"Network Interface: Network Interface: Adapter for loopback traffic capture\" --tapPortClient A --tapPortServer D --ipClient 192.168.1.26 --ipServer 192.168.1.25"
+    }
+  }
+}
