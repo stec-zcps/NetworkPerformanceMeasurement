@@ -1,3 +1,6 @@
+[![Build Status](https://app.travis-ci.com/stec-zcps/NetworkPerformanceMeasurment.svg?branch=master)](https://app.travis-ci.com/stec-zcps/NetworkPerformanceMeasurment)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fstec-zcps%2FNetworkPerformanceMeasurment.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fstec-zcps%2FNetworkPerformanceMeasurment?ref=badge_shield)
+
 # Network Performance Measurement
 
 ## Concept
