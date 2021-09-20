@@ -2,9 +2,24 @@
 
 A good way to synchronize system clocks is via GPS. Some GPS modules output a Pulse Per Second (PPS) which can be used
 to achieve highly synchronized system clocks. In the following the time synchronisation via GPS is exemplary shown
-for a [ODYSSEY - X86J4125800](https://www.seeedstudio.com/ODYSSEY-X86J4125800-p-4915.html) by using a GPIO and kernel
+for a [ODYSSEY X86J4125800](https://www.seeedstudio.com/ODYSSEY-X86J4125800-p-4915.html) by using a GPIO and kernel
 module. Beside GPS there are other options like Precision Time Protocol (PTP) to synchronize system clocks. However, 
 this is not explained here.
+
+## Hardware Setup
+In this example a NEO-M8N GPS module on a [M5Stack](https://docs.makerfactory.io/m5stack/module/gps/) board is used, 
+although almost any 3.3V based UART GPS module which has an external PPS output can be utilized.
+Only PPS, UART and Power needs to be connected to the Odyssey as follows:
+
+| ODYSSEY X86J4125800 | GPS module |
+|-----------------------|------------|
+| BCM14_TXD             | RXD        |
+| BCM15_RXD             | TXD        |
+| BCM17(Linux GPIO 364) | PPS        |
+| 3.3V                  | 3.3V       |
+| Ground                | GND        |
+
+In the BIOS of the ODYSSEY X86J4125800 the corresponding pins must be configured as UART.
 
 ## PPS Kernel Module
 The kernel module we need to install will attach an interrupt to the gpio pin connected to our pps source (the GPS 
